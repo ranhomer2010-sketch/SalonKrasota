@@ -1,6 +1,5 @@
 const body = document.body;
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
 if (!reduceMotion) {
   document.documentElement.classList.add('motion-ready');
@@ -8,6 +7,12 @@ if (!reduceMotion) {
 
 requestAnimationFrame(() => {
   body.classList.add('is-ready');
+});
+
+document.querySelectorAll('[data-reveal-group]').forEach((group) => {
+  [...group.querySelectorAll('[data-reveal]')].forEach((item, index) => {
+    item.style.setProperty('--reveal-delay', `${index * 60}ms`);
+  });
 });
 
 const revealItems = [...document.querySelectorAll('[data-reveal]')];
@@ -21,35 +26,20 @@ if (reduceMotion || !('IntersectionObserver' in window)) {
       entry.target.classList.add('is-visible');
       observer.unobserve(entry.target);
     });
-  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.14 });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.14 });
 
   revealItems.forEach((item) => revealObserver.observe(item));
 }
 
-const heroStage = document.querySelector('[data-hero-stage]');
-const heroImage = document.querySelector('[data-hero-image]');
+const imageShells = document.querySelectorAll('.photo-card, .section-photo, .page-hero-photo, .contact-hero-photo, .advantage-photo');
 
-if (heroStage && heroImage && finePointer && !reduceMotion) {
-  let pointerFrame = 0;
-
-  const updateHeroImage = (event) => {
-    if (pointerFrame) return;
-    pointerFrame = requestAnimationFrame(() => {
-      const bounds = heroStage.getBoundingClientRect();
-      const horizontal = ((event.clientX - bounds.left) / bounds.width - 0.5) * 7;
-      const vertical = ((event.clientY - bounds.top) / bounds.height - 0.5) * 5;
-      heroImage.classList.add('is-interactive');
-      heroImage.style.transform = `translate3d(${horizontal}px, ${vertical}px, 0) scale(1.045)`;
-      pointerFrame = 0;
-    });
-  };
-
-  heroStage.addEventListener('pointermove', updateHeroImage);
-  heroStage.addEventListener('pointerleave', () => {
-    heroImage.classList.add('is-interactive');
-    heroImage.style.transform = 'translate3d(0, 0, 0) scale(1.035)';
-  });
-}
+imageShells.forEach((shell) => {
+  const image = shell.querySelector('img');
+  if (!image) return;
+  const finishLoading = () => shell.classList.add('is-loaded');
+  if (image.complete) finishLoading();
+  else image.addEventListener('load', finishLoading, { once: true });
+});
 
 const menuButton = document.querySelector('[data-menu-toggle]');
 const nav = document.querySelector('.site-nav');
@@ -76,110 +66,52 @@ document.querySelectorAll('[data-year]').forEach((node) => {
   node.textContent = String(new Date().getFullYear());
 });
 
-const tabs = [...document.querySelectorAll('[role="tab"]')];
-const panels = [...document.querySelectorAll('[role="tabpanel"]')];
-
-const animatePanel = (panel) => {
-  if (!panel || reduceMotion || !panel.animate) return;
-  const rows = [...panel.querySelectorAll('.price-item')];
-  rows.forEach((row, index) => {
-    row.animate(
-      [
-        { opacity: 0, transform: 'translateY(10px)' },
-        { opacity: 1, transform: 'translateY(0)' }
-      ],
-      {
-        duration: 320,
-        delay: index * 38,
-        easing: 'cubic-bezier(0.23, 1, 0.32, 1)',
-        fill: 'both'
-      }
-    );
-  });
-};
-
-const activateTab = (tab, focus = false) => {
-  if (!tab) return;
-  const panelId = tab.getAttribute('aria-controls');
-  let activePanel = null;
-
-  tabs.forEach((item) => {
-    const selected = item === tab;
-    item.setAttribute('aria-selected', String(selected));
-    item.tabIndex = selected ? 0 : -1;
-  });
-
-  panels.forEach((panel) => {
-    const selected = panel.id === panelId;
-    panel.hidden = !selected;
-    if (selected) activePanel = panel;
-  });
-
-  animatePanel(activePanel);
-  if (focus) tab.focus();
-};
-
-tabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => activateTab(tab));
-  tab.addEventListener('keydown', (event) => {
-    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-    event.preventDefault();
-    let nextIndex = index;
-    if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
-    if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
-    if (event.key === 'Home') nextIndex = 0;
-    if (event.key === 'End') nextIndex = tabs.length - 1;
-    activateTab(tabs[nextIndex], true);
-  });
-});
-
 const privacyMarkup = `
   <div class="modal-backdrop" data-privacy-backdrop hidden>
     <section class="privacy-dialog" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
       <button class="privacy-dialog-close" type="button" data-privacy-close>Закрыть</button>
-      <h2 id="privacy-title">Как сайт работает с данными</h2>
-      <p>Это демонстрационный прототип. Он не содержит форм, не устанавливает аналитические или рекламные cookies и не сохраняет персональные данные посетителей.</p>
+      <h2 id="privacy-title">Как прототип работает с данными</h2>
+      <p>Это демонстрационный прототип. Он не содержит форм, аналитики, рекламных cookies и скрытой передачи персональных данных.</p>
       <ul>
-        <li>Кнопка «Записаться» открывает внешний сервис онлайн-записи YCLIENTS в новой вкладке.</li>
-        <li>До перехода на YCLIENTS данные посетителя не передаются этому сервису.</li>
-        <li>Перед запуском реального сайта сюда необходимо добавить реквизиты оператора и актуальные юридические документы клиента.</li>
+        <li>Изображения, стили и скрипты загружаются локально вместе с сайтом.</li>
+        <li>Кнопка записи открывает YCLIENTS только после осознанного нажатия пользователя.</li>
+        <li>Перед запуском реального сайта потребуются реквизиты оператора и отдельные юридические документы клиента.</li>
+        <li>Если появится форма, её обработку нужно разместить на российской инфраструктуре и добавить отдельное согласие.</li>
       </ul>
       <button class="button button-primary" type="button" data-privacy-close>Понятно</button>
     </section>
   </div>`;
 
 body.insertAdjacentHTML('beforeend', privacyMarkup);
+
 const backdrop = document.querySelector('[data-privacy-backdrop]');
 const dialog = backdrop?.querySelector('.privacy-dialog');
 let lastFocused = null;
+let closeTimer = 0;
 
 const openPrivacy = () => {
   if (!backdrop) return;
+  window.clearTimeout(closeTimer);
   lastFocused = document.activeElement;
   backdrop.hidden = false;
   body.classList.add('is-locked');
-
-  if (!reduceMotion && backdrop.animate && dialog?.animate) {
-    backdrop.animate(
-      [{ opacity: 0 }, { opacity: 1 }],
-      { duration: 200, easing: 'cubic-bezier(0.23, 1, 0.32, 1)' }
-    );
-    dialog.animate(
-      [
-        { opacity: 0, transform: 'scale(0.96)' },
-        { opacity: 1, transform: 'scale(1)' }
-      ],
-      { duration: 250, easing: 'cubic-bezier(0.23, 1, 0.32, 1)' }
-    );
-  }
-
+  requestAnimationFrame(() => backdrop.classList.add('is-open'));
   backdrop.querySelector('[data-privacy-close]')?.focus();
 };
 
 const closePrivacy = () => {
-  if (!backdrop) return;
-  backdrop.hidden = true;
+  if (!backdrop || backdrop.hidden) return;
+  backdrop.classList.remove('is-open');
   body.classList.remove('is-locked');
+
+  if (reduceMotion) {
+    backdrop.hidden = true;
+  } else {
+    closeTimer = window.setTimeout(() => {
+      backdrop.hidden = true;
+    }, 230);
+  }
+
   lastFocused?.focus?.();
 };
 
@@ -198,13 +130,14 @@ backdrop?.addEventListener('click', (event) => {
 window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     closeMenu();
-    if (backdrop && !backdrop.hidden) closePrivacy();
+    closePrivacy();
   }
 
   if (event.key === 'Tab' && backdrop && !backdrop.hidden && dialog) {
     const focusable = [...dialog.querySelectorAll('button, a[href]')];
     const first = focusable[0];
     const last = focusable[focusable.length - 1];
+
     if (event.shiftKey && document.activeElement === first) {
       event.preventDefault();
       last?.focus();

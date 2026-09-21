@@ -4,57 +4,82 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Контакты | салон Красота</title>
-  <meta name="description" content="Адрес, время работы и онлайн-запись в салон Красота в Москве.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23a31d52'/%3E%3Cpath d='M21 15v34M22 33l18-18M22 33l20 16' stroke='%23fffafd' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'; frame-src 'none'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Контакты | Салон Красота</title>
+  <meta name="description" content="Страница контактов в четырёхстраничном прототипе сайта салона красоты.">
+  <link rel="preload" as="image" href="assets/service-light-v2.webp" type="image/webp">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23d60055'/%3E%3Cpath d='M19 17v30M20 32l17-15M20 32l19 15' stroke='%23fff9fc' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
   <header class="site-header" data-entrance="header">
     <div class="shell header-inner">
-      <a class="brand" href="./" aria-label="Красота, главная страница"><span class="brand-mark">К</span><span>Салон Красота</span></a>
+      <a class="brand" href="./" aria-label="Салон Красота, главная страница"><span class="brand-mark" aria-hidden="true">К</span><span>Салон Красота</span></a>
       <div class="nav-wrap">
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>Меню</button>
         <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
-          <a href="index.html#services">Услуги и цены</a>
-          <a href="index.html#advantages">Преимущества</a>
+          <a href="./">Главная</a>
+          <a href="about.html">Преимущества</a>
+          <a href="services.html">Как добраться</a>
           <a href="contacts.html" aria-current="page">Контакты</a>
-          <a class="button button-primary" href="https://yclients.com/" target="_blank" rel="noopener noreferrer">Записаться</a>
+          <a class="button button-primary button-small" href="https://yclients.com/" target="_blank" rel="noopener noreferrer external" referrerpolicy="no-referrer">Записаться</a>
         </nav>
       </div>
     </div>
   </header>
 
-  <main id="main" class="contact-page">
-    <div class="shell contact-grid">
-      <figure class="contact-image" data-reveal="wipe">
-        <img src="assets/interior-light-v2.webp" alt="Светлый интерьер салона Красота" width="1122" height="1402">
-      </figure>
-      <section class="contact-copy" data-reveal>
-        <h1>Контакты</h1>
-        <p class="section-copy">Если вы у нас впервые, администратор подскажет, как быстрее найти вход.</p>
-        <ul class="contact-list">
-          <li><small>Адрес</small>Москва, Большой Кисловский переулок, 9</li>
-          <li><small>Время работы</small>Ежедневно, 10:00-22:00</li>
-          <li><small>Телефон</small><a href="tel:+74951234567">+7 (495) 123-45-67</a></li>
-          <li><small>Метро</small>Арбатская, 5 минут пешком</li>
-        </ul>
-        <div class="contact-actions">
-          <a class="button button-primary" href="https://yclients.com/" target="_blank" rel="noopener noreferrer">Записаться</a>
-          <a class="button button-secondary" href="https://yandex.ru/maps/" target="_blank" rel="noopener noreferrer">Построить маршрут</a>
+  <main id="main">
+    <section class="contact-hero" aria-labelledby="page-title">
+      <div class="shell contact-hero-grid">
+        <div class="contact-hero-copy">
+          <p class="eyebrow hero-enter hero-enter-first">Контакты</p>
+          <h1 id="page-title" class="hero-enter hero-enter-second">Здесь будут <span>контакты салона</span></h1>
+          <p class="hero-summary hero-enter hero-enter-third">Телефон, адрес, часы работы и удобная онлайн-запись.</p>
+          <div class="hero-actions hero-enter hero-enter-fourth">
+            <a class="button button-primary" href="https://yclients.com/" target="_blank" rel="noopener noreferrer external" referrerpolicy="no-referrer">Запись в YCLIENTS</a>
+            <a class="button button-secondary" href="services.html">Как добраться</a>
+          </div>
         </div>
-      </section>
-    </div>
+        <figure class="contact-hero-photo hero-photo-enter">
+          <img src="assets/service-light-v2.webp" alt="Временная фотография мастера для страницы контактов" width="1120" height="1400">
+          <figcaption>Здесь будет фотография администратора или салона</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section contacts-section">
+      <div class="shell contacts-layout">
+        <header class="section-heading section-heading-narrow" data-reveal>
+          <p class="eyebrow">Будущий контент страницы</p>
+          <h2>Все способы связаться в одном месте</h2>
+          <p>Подставим только подтверждённые контакты клиента. Сейчас показываем структуру.</p>
+        </header>
+
+        <div class="contact-details" data-reveal-group>
+          <article class="contact-detail contact-detail-wide" data-reveal><small>Телефон</small><strong>Здесь будет номер салона</strong><span>Добавим кликабельный звонок после получения номера</span></article>
+          <article class="contact-detail" data-reveal><small>Адрес</small><strong>Здесь будет точный адрес</strong><span>Улица, дом и помещение</span></article>
+          <article class="contact-detail contact-detail-pink" data-reveal><small>Часы работы</small><strong>Здесь будет график</strong><span>Актуальное время работы по дням</span></article>
+          <article class="contact-detail" data-reveal><small>Другие контакты</small><strong>Здесь будут согласованные каналы связи</strong><span>Без лишних и неподтверждённых ссылок</span></article>
+        </div>
+
+        <div class="contact-booking" data-reveal>
+          <div><p class="eyebrow">Онлайн-запись</p><h2>Свободное время открывается в YCLIENTS</h2></div>
+          <a class="button button-light" href="https://yclients.com/" target="_blank" rel="noopener noreferrer external" referrerpolicy="no-referrer">Перейти к записи</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="shell footer-main">
-      <div><a class="brand" href="./"><span class="brand-mark">К</span><span>Салон Красота</span></a><p class="footer-copy">Стрижки, цвет, брови и ногти в центре Москвы.</p></div>
-      <div><p class="footer-title">Навигация</p><div class="footer-links"><a href="index.html#services">Услуги и цены</a><a href="index.html#advantages">Преимущества</a><a href="contacts.html">Контакты</a></div></div>
-      <div><p class="footer-title">Информация</p><div class="footer-links"><button type="button" data-privacy-open>Об обработке данных</button><a href="https://yclients.com/" target="_blank" rel="noopener noreferrer">Записаться</a></div></div>
+      <div class="footer-brand-block"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true">К</span><span>Салон Красота</span></a><p>Яркий прототип будущего сайта салона.</p></div>
+      <nav class="footer-links" aria-label="Навигация в подвале"><a href="./">Главная</a><a href="about.html">Преимущества</a><a href="services.html">Как добраться</a><a href="contacts.html">Контакты</a></nav>
+      <div class="footer-actions"><a class="button button-primary button-small" href="https://yclients.com/" target="_blank" rel="noopener noreferrer external" referrerpolicy="no-referrer">Записаться</a><button class="text-button" type="button" data-privacy-open>Как прототип работает с данными</button></div>
     </div>
-    <div class="shell footer-bottom"><span>© <span data-year></span> Салон Красота</span><span>Москва</span></div>
+    <div class="shell footer-bottom"><span>© <span data-year></span> Салон Красота</span><span>Демонстрационный прототип</span></div>
   </footer>
   <script src="assets/site.js" defer></script>
 </body>

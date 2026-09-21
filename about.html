@@ -3,13 +3,98 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=./#advantages">
-  <title>Преимущества | салон Красота</title>
-  <link rel="canonical" href="./#advantages">
+  <meta name="color-scheme" content="light">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'; frame-src 'none'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Преимущества | Салон Красота</title>
+  <meta name="description" content="Страница преимуществ в прототипе сайта салона красоты.">
+  <link rel="preload" as="image" href="assets/hero-light-v2.webp" type="image/webp">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23d60055'/%3E%3Cpath d='M19 17v30M20 32l17-15M20 32l19 15' stroke='%23fff9fc' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
-<body class="redirect-page">
-  <p>Раздел «Преимущества» находится <a href="./#advantages">на главной странице</a>.</p>
-  <script>window.location.replace('./#advantages');</script>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+  <header class="site-header" data-entrance="header">
+    <div class="shell header-inner">
+      <a class="brand" href="./" aria-label="Салон Красота, главная страница"><span class="brand-mark" aria-hidden="true">К</span><span>Салон Красота</span></a>
+      <div class="nav-wrap">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>Меню</button>
+        <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+          <a href="./">Главная</a>
+          <a href="about.html" aria-current="page">Преимущества</a>
+          <a href="services.html">Как добраться</a>
+          <a href="contacts.html">Контакты</a>
+          <a class="button button-primary button-small" href="https://yclients.com/" target="_blank" rel="noopener noreferrer external" referrerpolicy="no-referrer">Записаться</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero page-hero-pink" aria-labelledby="page-title">
+      <div class="shell page-hero-grid">
+        <div class="page-hero-copy">
+          <p class="eyebrow hero-enter hero-enter-first">Преимущества</p>
+          <h1 id="page-title" class="hero-enter hero-enter-second">Здесь будет всё, что <span>отличает салон</span></h1>
+          <p class="hero-summary hero-enter hero-enter-third">Факты о команде, сервисе, подходе и причинах выбрать именно этот салон.</p>
+          <a class="button button-light hero-enter hero-enter-fourth" href="https://yclients.com/" target="_blank" rel="noopener noreferrer external" referrerpolicy="no-referrer">Запись в YCLIENTS</a>
+        </div>
+        <figure class="page-hero-photo hero-photo-enter">
+          <img src="assets/hero-light-v2.webp" alt="Временная фотография команды для страницы преимуществ" width="1584" height="990">
+          <figcaption>Здесь будет фотография команды или салона</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section advantages-page-section">
+      <div class="shell">
+        <header class="section-heading section-heading-narrow" data-reveal>
+          <p class="eyebrow">Будущий контент страницы</p>
+          <h2>Преимущества покажем конкретно</h2>
+          <p>Не будем придумывать обещания. Подставим реальные сильные стороны после интервью с салоном.</p>
+        </header>
+
+        <div class="advantages-mosaic" data-reveal-group>
+          <article class="advantage-placeholder advantage-placeholder-large" data-reveal>
+            <span>Главное преимущество</span>
+            <h3>Здесь будет ключевая причина выбрать салон</h3>
+            <p>Здесь будет короткое подтверждение: факт, цифра или понятное объяснение.</p>
+          </article>
+          <figure class="advantage-photo" data-reveal="image">
+            <img src="assets/interior-light-v2.webp" alt="Временная фотография интерьера для страницы преимуществ" width="1120" height="1400" loading="lazy">
+            <figcaption>Здесь будет реальная фотография интерьера</figcaption>
+          </figure>
+          <article class="advantage-placeholder" data-reveal>
+            <span>Преимущество салона</span>
+            <h3>Здесь будет второй сильный аргумент</h3>
+            <p>Короткое пояснение без общих рекламных фраз.</p>
+          </article>
+          <article class="advantage-placeholder advantage-placeholder-soft" data-reveal>
+            <span>Преимущество салона</span>
+            <h3>Здесь будет ещё один реальный факт</h3>
+            <p>Добавим подтверждение со стороны команды или клиентов.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact-cta-section">
+      <div class="shell compact-cta" data-reveal>
+        <div><p class="eyebrow">Следующий шаг</p><h2>Запись ведёт прямо в YCLIENTS</h2></div>
+        <a class="button button-primary" href="https://yclients.com/" target="_blank" rel="noopener noreferrer external" referrerpolicy="no-referrer">Записаться</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-main">
+      <div class="footer-brand-block"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true">К</span><span>Салон Красота</span></a><p>Яркий прототип будущего сайта салона.</p></div>
+      <nav class="footer-links" aria-label="Навигация в подвале"><a href="./">Главная</a><a href="about.html">Преимущества</a><a href="services.html">Как добраться</a><a href="contacts.html">Контакты</a></nav>
+      <div class="footer-actions"><a class="button button-primary button-small" href="https://yclients.com/" target="_blank" rel="noopener noreferrer external" referrerpolicy="no-referrer">Записаться</a><button class="text-button" type="button" data-privacy-open>Как прототип работает с данными</button></div>
+    </div>
+    <div class="shell footer-bottom"><span>© <span data-year></span> Салон Красота</span><span>Демонстрационный прототип</span></div>
+  </footer>
+  <script src="assets/site.js" defer></script>
 </body>
 </html>
