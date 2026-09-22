@@ -5,13 +5,11 @@ if (!reduceMotion) {
   document.documentElement.classList.add('motion-ready');
 }
 
-requestAnimationFrame(() => {
-  body.classList.add('is-ready');
-});
+requestAnimationFrame(() => body.classList.add('is-ready'));
 
 document.querySelectorAll('[data-reveal-group]').forEach((group) => {
-  [...group.querySelectorAll('[data-reveal]')].forEach((item, index) => {
-    item.style.setProperty('--reveal-delay', `${index * 60}ms`);
+  group.querySelectorAll('[data-reveal]').forEach((item, index) => {
+    item.style.setProperty('--reveal-delay', `${index * 65}ms`);
   });
 });
 
@@ -20,35 +18,25 @@ const revealItems = [...document.querySelectorAll('[data-reveal]')];
 if (reduceMotion || !('IntersectionObserver' in window)) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
 } else {
-  const revealObserver = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver((entries, instance) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       entry.target.classList.add('is-visible');
-      observer.unobserve(entry.target);
+      instance.unobserve(entry.target);
     });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.14 });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
 
-  revealItems.forEach((item) => revealObserver.observe(item));
+  revealItems.forEach((item) => observer.observe(item));
 }
 
-const imageShells = document.querySelectorAll('.photo-card, .section-photo, .page-hero-photo, .contact-hero-photo, .advantage-photo');
-
-imageShells.forEach((shell) => {
-  const image = shell.querySelector('img');
-  if (!image) return;
-  const finishLoading = () => shell.classList.add('is-loaded');
-  if (image.complete) finishLoading();
-  else image.addEventListener('load', finishLoading, { once: true });
-});
-
 const menuButton = document.querySelector('[data-menu-toggle]');
-const nav = document.querySelector('.site-nav');
+const navigation = document.querySelector('.site-nav');
 
 const closeMenu = () => {
-  if (!menuButton || !nav) return;
+  if (!menuButton || !navigation) return;
   menuButton.setAttribute('aria-expanded', 'false');
   menuButton.textContent = 'Меню';
-  nav.classList.remove('is-open');
+  navigation.classList.remove('is-open');
   body.classList.remove('is-locked');
 };
 
@@ -56,11 +44,11 @@ menuButton?.addEventListener('click', () => {
   const open = menuButton.getAttribute('aria-expanded') !== 'true';
   menuButton.setAttribute('aria-expanded', String(open));
   menuButton.textContent = open ? 'Закрыть' : 'Меню';
-  nav?.classList.toggle('is-open', open);
+  navigation?.classList.toggle('is-open', open);
   body.classList.toggle('is-locked', open);
 });
 
-nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+navigation?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
 
 document.querySelectorAll('[data-year]').forEach((node) => {
   node.textContent = String(new Date().getFullYear());
@@ -70,15 +58,15 @@ const privacyMarkup = `
   <div class="modal-backdrop" data-privacy-backdrop hidden>
     <section class="privacy-dialog" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
       <button class="privacy-dialog-close" type="button" data-privacy-close>Закрыть</button>
-      <h2 id="privacy-title">Как прототип работает с данными</h2>
+      <h2 id="privacy-title">Как сайт работает с данными</h2>
       <p>Это демонстрационный прототип. Он не содержит форм, аналитики, рекламных cookies и скрытой передачи персональных данных.</p>
       <ul>
-        <li>Изображения, стили и скрипты загружаются локально вместе с сайтом.</li>
-        <li>Кнопка записи открывает YCLIENTS только после осознанного нажатия пользователя.</li>
-        <li>Перед запуском реального сайта потребуются реквизиты оператора и отдельные юридические документы клиента.</li>
-        <li>Если появится форма, её обработку нужно разместить на российской инфраструктуре и добавить отдельное согласие.</li>
+        <li>Изображения, шрифт, стили и скрипты загружаются вместе с сайтом.</li>
+        <li>Система записи открывается только после нажатия посетителя.</li>
+        <li>Перед запуском добавим реквизиты владельца, политику и необходимые согласия.</li>
+        <li>Если появится форма, её обработка будет размещена на согласованной российской инфраструктуре.</li>
       </ul>
-      <button class="button button-primary" type="button" data-privacy-close>Понятно</button>
+      <button class="button button-dark" type="button" data-privacy-close>Понятно</button>
     </section>
   </div>`;
 

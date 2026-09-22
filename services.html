@@ -7,90 +7,125 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'; frame-src 'none'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
-  <title>Как добраться | Салон Красота</title>
-  <meta name="description" content="Страница маршрута до салона в четырёхстраничном прототипе сайта.">
-  <link rel="preload" as="image" href="assets/interior-light-v2.webp" type="image/webp">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23d60055'/%3E%3Cpath d='M19 17v30M20 32l17-15M20 32l19 15' stroke='%23fff9fc' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <title>Услуги и цены | Салон Красота</title>
+  <meta name="description" content="Стрижки, окрашивание, ногтевой сервис, брови и макияж. Структура прайса с длительностью и составом услуг.">
+  <link rel="preload" as="font" href="assets/BebasNeue-Regular.ttf" type="font/ttf" crossorigin>
+  <link rel="preload" as="image" href="assets/service-light-v2.webp" type="image/webp">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23ff84ba'/%3E%3Cpath d='M18 18h28v8H35v25h-7V26H18z' fill='%23121212'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
   <header class="site-header" data-entrance="header">
     <div class="shell header-inner">
-      <a class="brand" href="./" aria-label="Салон Красота, главная страница"><span class="brand-mark" aria-hidden="true">К</span><span>Салон Красота</span></a>
-      <div class="nav-wrap">
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>Меню</button>
-        <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
-          <a href="./">Главная</a>
-          <a href="about.html">Преимущества</a>
-          <a href="services.html" aria-current="page">Как добраться</a>
-          <a href="contacts.html">Контакты</a>
-          <a class="button button-primary button-small" href="https://yclients.com/" target="_blank" rel="noopener noreferrer external" referrerpolicy="no-referrer">Записаться</a>
-        </nav>
-      </div>
+      <a class="brand" href="./" aria-label="Салон Красота, главная страница"><span>КРАСОТА</span><small>салон</small></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>Меню</button>
+      <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
+        <a href="./">Главная</a>
+        <a href="services.html" aria-current="page">Услуги и цены</a>
+        <a href="about.html">Салон и мастера</a>
+        <a href="contacts.html">Контакты</a>
+        <a class="button button-dark button-small" href="https://yclients.com/" target="_blank" rel="noopener noreferrer external" referrerpolicy="no-referrer">Записаться</a>
+      </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="page-hero directions-hero" aria-labelledby="page-title">
-      <div class="shell page-hero-grid">
-        <div class="page-hero-copy">
-          <p class="eyebrow hero-enter hero-enter-first">Как добраться</p>
-          <h1 id="page-title" class="hero-enter hero-enter-second">Здесь будет понятный <span>маршрут до салона</span></h1>
-          <p class="hero-summary hero-enter hero-enter-third">Адрес, ориентиры, фото входа и кнопка построения маршрута.</p>
-          <a class="button button-primary hero-enter hero-enter-fourth" href="contacts.html">Смотреть контакты</a>
+    <section class="inner-hero inner-hero-yellow" aria-labelledby="page-title">
+      <div class="shell inner-hero-grid">
+        <div class="inner-hero-copy">
+          <p class="eyebrow hero-enter hero-enter-first">Услуги и цены</p>
+          <h1 id="page-title" class="hero-enter hero-enter-second">ВЫБЕРИТЕ СВОЙ ФОРМАТ КРАСОТЫ</h1>
+          <p class="hero-lead hero-enter hero-enter-third">Цена, длительность и состав процедуры будут рядом, чтобы выбрать было проще.</p>
+          <a class="button button-dark hero-enter hero-enter-fourth" href="#price">Открыть направления</a>
         </div>
-        <figure class="page-hero-photo hero-photo-enter">
-          <img src="assets/interior-light-v2.webp" alt="Временная фотография салона для страницы маршрута" width="1120" height="1400">
-          <figcaption>Здесь будет фотография входа или фасада</figcaption>
+        <figure class="inner-hero-image hero-photo-enter">
+          <img src="assets/service-light-v2.webp" alt="Мастер выполняет укладку волос" width="1120" height="1400">
+          <figcaption>Стрижки · окрашивание · уход</figcaption>
         </figure>
       </div>
     </section>
 
-    <section class="section route-section">
-      <div class="shell route-layout">
-        <header class="section-heading section-heading-narrow" data-reveal>
-          <p class="eyebrow">Будущий контент страницы</p>
-          <h2>Клиент не будет искать вход</h2>
-          <p>После получения адреса соберём маршрут без внешнего виджета и без выдуманных ориентиров.</p>
+    <section class="section price-section" id="price" aria-labelledby="price-title">
+      <div class="shell">
+        <header class="stack-heading price-heading" data-reveal>
+          <p class="eyebrow">Структура прайса</p>
+          <h2 id="price-title">НЕ ТОЛЬКО ЦЕНА,<br>НО И ЧТО В НЕЁ ВХОДИТ</h2>
+          <p>Сейчас это структура будущей страницы. Реальные названия, стоимость и время добавим из согласованного прайса салона.</p>
         </header>
 
-        <div class="route-points" data-reveal-group>
-          <article class="route-point" data-reveal>
-            <span class="route-icon" aria-hidden="true">A</span>
-            <div><h3>Здесь будет точный адрес</h3><p>Улица, дом, корпус, этаж и номер помещения.</p></div>
+        <div class="price-catalog">
+          <article class="price-group" id="hair" data-reveal>
+            <div class="price-group-title tile-pink"><span>Волосы</span><h3>СТРИЖКИ И УКЛАДКИ</h3><p>Форма, текстура и образ на каждый день или событие.</p></div>
+            <div class="price-lines">
+              <div><strong>Женская стрижка</strong><span>состав услуги · время · цена</span></div>
+              <div><strong>Укладка</strong><span>длина волос · время · цена</span></div>
+              <div><strong>Уход за волосами</strong><span>программа · время · цена</span></div>
+            </div>
           </article>
-          <article class="route-point" data-reveal>
-            <span class="route-icon" aria-hidden="true">М</span>
-            <div><h3>Здесь будет путь от метро</h3><p>Ближайшая станция, нужный выход и время пешком.</p></div>
-          </article>
-          <article class="route-point" data-reveal>
-            <span class="route-icon" aria-hidden="true">↗</span>
-            <div><h3>Здесь будут ориентиры</h3><p>Куда повернуть и как узнать правильный вход.</p></div>
-          </article>
-          <article class="route-point route-point-accent" data-reveal>
-            <span class="route-icon" aria-hidden="true">Фото</span>
-            <div><h3>Здесь будет фотография входа</h3><p>Добавим реальный кадр после получения материалов от салона.</p></div>
-          </article>
-        </div>
 
-        <div class="route-map-placeholder" data-reveal>
-          <div>
-            <p class="eyebrow">Маршрут</p>
-            <h2>Здесь появится кнопка «Построить маршрут»</h2>
-            <p>Подключим ссылку на российский картографический сервис после согласования адреса.</p>
-          </div>
-          <span class="button button-muted" aria-disabled="true">Адрес пока не указан</span>
+          <article class="price-group price-group-reverse" id="color" data-reveal>
+            <div class="price-group-title tile-yellow"><span>Цвет</span><h3>ОКРАШИВАНИЕ</h3><p>Перед сложной техникой предложим консультацию с мастером.</p></div>
+            <div class="price-lines">
+              <div><strong>Окрашивание в один тон</strong><span>длина · материалы · цена</span></div>
+              <div><strong>Сложное окрашивание</strong><span>консультация · оценка времени</span></div>
+              <div><strong>Тонирование</strong><span>длина · материалы · цена</span></div>
+            </div>
+          </article>
+
+          <article class="price-group" id="nails" data-reveal>
+            <div class="price-group-title tile-blue"><span>Детали</span><h3>НОГТЕВОЙ СЕРВИС</h3><p>Отдельно покажем снятие, покрытие, укрепление и дизайн.</p></div>
+            <div class="price-lines">
+              <div><strong>Маникюр</strong><span>что входит · время · цена</span></div>
+              <div><strong>Маникюр с покрытием</strong><span>снятие · покрытие · цена</span></div>
+              <div><strong>Педикюр</strong><span>вид обработки · время · цена</span></div>
+            </div>
+          </article>
+
+          <article class="price-group price-group-reverse" id="brows" data-reveal>
+            <div class="price-group-title tile-cream"><span>Акценты</span><h3>БРОВИ И МАКИЯЖ</h3><p>Форма, оттенок и образ с учётом ваших пожеланий.</p></div>
+            <div class="price-lines">
+              <div><strong>Коррекция бровей</strong><span>форма · время · цена</span></div>
+              <div><strong>Окрашивание бровей</strong><span>материал · время · цена</span></div>
+              <div><strong>Макияж</strong><span>дневной или вечерний · цена</span></div>
+            </div>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section price-explainer" aria-labelledby="cost-title">
+      <div class="shell cost-grid">
+        <div data-reveal>
+          <p class="eyebrow">Итоговая стоимость</p>
+          <h2 id="cost-title">ОТ ЧЕГО ЗАВИСИТ ЦЕНА</h2>
+        </div>
+        <div class="cost-list" data-reveal-group>
+          <article data-reveal><strong>Длина и густота</strong><p>Особенно важны при окрашивании и уходе за волосами.</p></article>
+          <article data-reveal><strong>Категория мастера</strong><p>Если категории влияют на прайс, покажем это в каждой строке.</p></article>
+          <article data-reveal><strong>Материалы</strong><p>Заранее укажем, что включено и что рассчитывается отдельно.</p></article>
+          <article data-reveal><strong>Дополнительные услуги</strong><p>Снятие, дизайн или укладка будут видны до записи.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section consultation-section">
+      <div class="shell consultation-panel consultation-panel-blue" data-reveal>
+        <div>
+          <p class="eyebrow">Не уверены в услуге</p>
+          <h2>НАЧНИТЕ С КОНСУЛЬТАЦИИ</h2>
+          <p>Опишите желаемый результат. Администратор уточнит детали и подберёт мастера.</p>
+        </div>
+        <a class="button button-dark" href="https://yclients.com/" target="_blank" rel="noopener noreferrer external" referrerpolicy="no-referrer">Обсудить запись</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="shell footer-main">
-      <div class="footer-brand-block"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true">К</span><span>Салон Красота</span></a><p>Яркий прототип будущего сайта салона.</p></div>
-      <nav class="footer-links" aria-label="Навигация в подвале"><a href="./">Главная</a><a href="about.html">Преимущества</a><a href="services.html">Как добраться</a><a href="contacts.html">Контакты</a></nav>
-      <div class="footer-actions"><a class="button button-primary button-small" href="https://yclients.com/" target="_blank" rel="noopener noreferrer external" referrerpolicy="no-referrer">Записаться</a><button class="text-button" type="button" data-privacy-open>Как прототип работает с данными</button></div>
+    <div class="shell footer-grid">
+      <div><a class="footer-logo" href="./">КРАСОТА</a><p>Многостраничный прототип сайта салона красоты.</p></div>
+      <nav aria-label="Навигация в подвале"><a href="./">Главная</a><a href="about.html">Салон и мастера</a><a href="contacts.html">Контакты</a></nav>
+      <div class="footer-actions"><a class="button button-dark button-small" href="https://yclients.com/" target="_blank" rel="noopener noreferrer external" referrerpolicy="no-referrer">Записаться</a><button class="text-button" type="button" data-privacy-open>Как сайт работает с данными</button></div>
     </div>
     <div class="shell footer-bottom"><span>© <span data-year></span> Салон Красота</span><span>Демонстрационный прототип</span></div>
   </footer>
