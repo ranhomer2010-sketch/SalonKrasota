@@ -7,6 +7,40 @@ if (!reduceMotion) {
 
 requestAnimationFrame(() => body.classList.add('is-ready'));
 
+document.querySelectorAll('[data-wave-text]').forEach((node) => {
+  const label = node.textContent.trim();
+  const visual = document.createElement('span');
+  let letterIndex = 0;
+
+  node.setAttribute('aria-label', label);
+  visual.className = 'wave-text-visual';
+  visual.setAttribute('aria-hidden', 'true');
+
+  label.split(' ').forEach((word, wordIndex, words) => {
+    const wordNode = document.createElement('span');
+    wordNode.className = 'wave-word';
+
+    [...word].forEach((character) => {
+      const letter = document.createElement('span');
+      letter.className = 'wave-letter';
+      letter.textContent = character;
+      letter.style.setProperty('--wave-delay', `${letterIndex * -65}ms`);
+      wordNode.append(letter);
+      letterIndex += 1;
+    });
+
+    visual.append(wordNode);
+
+    if (wordIndex < words.length - 1) {
+      visual.append(document.createTextNode(' '));
+      letterIndex += 1;
+    }
+  });
+
+  node.textContent = '';
+  node.append(visual);
+});
+
 document.querySelectorAll('[data-reveal-group]').forEach((group) => {
   group.querySelectorAll('[data-reveal]').forEach((item, index) => {
     item.style.setProperty('--reveal-delay', `${index * 65}ms`);

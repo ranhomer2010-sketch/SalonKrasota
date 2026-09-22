@@ -25,6 +25,7 @@
   --font-display: "Bebas Neue", "Arial Narrow", Impact, sans-serif;
   --font-body: "Segoe UI", Arial, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --shadow: 0 24px 70px rgba(18, 18, 18, 0.14);
 }
 
@@ -81,6 +82,17 @@ figure, blockquote, dl, dd { margin: 0; }
 }
 
 .skip-link:focus { transform: translateY(0); }
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
 .shell { width: var(--shell); margin-inline: auto; }
 
 .site-header {
@@ -359,9 +371,59 @@ h3 { margin-bottom: 0.8rem; font-size: clamp(2.2rem, 4vw, 4.1rem); }
   background: var(--cream);
 }
 
-.hero-booking span { display: block; margin-bottom: 1rem; color: var(--muted); font-size: 0.72rem; }
+.hero-booking > span { display: block; margin-bottom: 1rem; color: var(--muted); font-size: 0.72rem; }
 .hero-booking strong { display: block; max-width: 12ch; padding-right: 2rem; font-family: var(--font-display); font-size: clamp(1.9rem, 3vw, 3.4rem); font-weight: 400; line-height: 0.95; }
+.wave-word, .wave-letter { display: inline-block; }
+.wave-word { white-space: nowrap; }
+.wave-letter {
+  transform-origin: 50% 80%;
+  animation: consultation-wave 1800ms var(--ease-in-out) infinite both;
+  animation-delay: var(--wave-delay);
+}
 .square-link { position: absolute; right: 0; bottom: 0; width: 3rem; height: 3rem; display: grid; place-items: center; color: var(--white); background: var(--ink); text-decoration: none; font-size: 1.2rem; }
+
+.beauty-marquee {
+  overflow: hidden;
+  border-block: 1px solid var(--ink);
+  color: var(--pink);
+  background: var(--ink);
+}
+
+.beauty-marquee-track {
+  width: max-content;
+  display: flex;
+  animation: beauty-marquee 18s linear infinite;
+  will-change: transform;
+}
+
+.beauty-marquee-group {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 5rem);
+  padding-right: clamp(2rem, 4vw, 5rem);
+}
+
+.beauty-marquee span {
+  display: block;
+  padding: 0.7rem 0 0.45rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.7rem, 7.5vw, 7rem);
+  line-height: 0.86;
+  letter-spacing: 0.015em;
+  white-space: nowrap;
+}
+
+@keyframes beauty-marquee {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes consultation-wave {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  25% { transform: translateY(-0.12em) rotate(-2deg); }
+  50% { transform: translateY(0.04em) rotate(1deg); }
+  75% { transform: translateY(-0.04em) rotate(-0.5deg); }
+}
 
 .directions { background: var(--white); }
 .direction-grid { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap: 1rem; }
@@ -673,6 +735,8 @@ html.motion-ready body.is-ready .hero-photo-enter { animation: hero-in 900ms var
   *, *::before, *::after { scroll-behavior: auto !important; }
   html.motion-ready [data-reveal], html.motion-ready .hero-enter, html.motion-ready .hero-photo-enter { opacity: 1; transform: none; transition: none; animation: none !important; }
   .direction-tile, .button { transition: none; }
+  .beauty-marquee-track, .wave-letter { animation: none; transform: none; }
+  .beauty-marquee-group + .beauty-marquee-group { display: none; }
 }
 
 @media (prefers-reduced-transparency: reduce) {
