@@ -54,6 +54,10 @@ a { color: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; }
 img { display: block; width: 100%; }
+.art-print {
+  filter: saturate(1.06) contrast(1.04);
+  image-rendering: auto;
+}
 figure, blockquote, dl, dd { margin: 0; }
 [hidden] { display: none !important; }
 
