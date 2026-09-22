@@ -411,12 +411,20 @@ h3 { margin-bottom: 0.8rem; font-size: clamp(2.2rem, 4vw, 4.1rem); }
 .inner-hero-grid { display: grid; grid-template-columns: minmax(0,0.95fr) minmax(22rem,0.72fr); align-items: center; gap: clamp(2rem,8vw,9rem); }
 .inner-hero-grid-wide { grid-template-columns: minmax(0,0.8fr) minmax(0,1.2fr); }
 .inner-hero-copy h1 { max-width: 8ch; margin: 0 0 1.35rem; font-family: var(--font-display); font-size: clamp(5rem, 10vw, 10rem); font-weight: 400; letter-spacing: 0.01em; line-height: 0.86; }
+.about-hero .inner-hero-copy h1 { width: 100%; max-width: none; font-size: clamp(4.15rem, 7.3vw, 7.3rem); }
 .hero-lead { max-width: 34rem; margin-bottom: 0; font-size: clamp(1.05rem,1.5vw,1.25rem); }
 .inner-hero-copy > .button { margin-top: 2rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
 .inner-hero-image { overflow: hidden; border: 1px solid var(--ink); border-radius: var(--radius); background: var(--white); box-shadow: var(--shadow); transform: rotate(1.2deg); }
 .inner-hero-image img { height: min(67dvh, 43rem); min-height: 31rem; object-fit: cover; }
 .inner-hero-team img { object-position: 65% center; }
+
+@media (min-width: 901px) {
+  .about-hero .inner-hero-grid-wide {
+    grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.92fr);
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+}
 
 .price-section { background: var(--paper); }
 .price-heading { margin-bottom: 4rem; }
@@ -634,6 +642,7 @@ html.motion-ready body.is-ready .hero-photo-enter { animation: hero-in 900ms var
   .consultation-panel .button, .final-booking-panel .button { width: 100%; }
   .inner-hero { padding-block: 3.5rem; }
   .inner-hero-copy h1 { font-size: clamp(4.4rem,20vw,6.6rem); }
+  .about-hero .inner-hero-copy h1 { font-size: clamp(3.55rem,17vw,5.5rem); }
   .inner-hero-image img { min-height: 0; height: 31rem; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .hero-actions .button { width: 100%; }
