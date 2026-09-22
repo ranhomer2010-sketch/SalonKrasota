@@ -272,11 +272,11 @@ h3 { margin-bottom: 0.8rem; font-size: clamp(2.2rem, 4vw, 4.1rem); }
 
 .hero-side-note {
   position: absolute;
-  top: 36%;
-  right: 2%;
+  top: 1rem;
+  right: 1.2rem;
   z-index: 5;
   margin: 0;
-  color: var(--white);
+  color: var(--ink);
   font-size: 0.72rem;
   font-weight: 800;
   line-height: 1.25;
@@ -621,8 +621,7 @@ html.motion-ready body.is-ready .hero-photo-enter { animation: hero-in 900ms var
   .hero-person img { object-position: 68% center; }
   .hero-detail { top: 34%; width: 29%; height: 18%; }
   .hero-detail figcaption { font-size: 0.58rem; }
-  .hero-number { top: 24%; right: 5%; font-size: 1.6rem; }
-  .hero-side-note { top: 29%; right: 3%; font-size: 0.58rem; }
+  .hero-side-note, .hero-number { display: none; }
   .hero-story { width: 58%; min-height: 28%; padding: 1.1rem; }
   .hero-story strong { font-size: 2.5rem; }
   .hero-story p { font-size: 0.78rem; }
